@@ -42,11 +42,9 @@ public class OrderCardPositiveTest {
         driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("Иваныч-Ивановичев Иван");
         driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+78005553535");
         driver.findElement(By.cssSelector("[data-test-id='agreement']")).click();
-        Thread.sleep(5000);
         driver.findElement(By.cssSelector("button.button")).click();
         var actualTextElement = driver.findElement(By.cssSelector("[data-test-id=order-success]"));
         var actualText = actualTextElement.getText().trim();
-        Thread.sleep(5000);
         assertEquals("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.", actualText);
         assertTrue(actualTextElement.isDisplayed());
     }
